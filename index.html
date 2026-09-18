@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Закваска на перце — домашняя лаборатория</title>
-<meta name="description" content="Как из острого перца получилась дикая закваска, а из закваски — крем-сыр. Все банки, замеры, провалы и рабочий протокол.">
+<meta name="description" content="Как из острого перца получилась дикая закваска, а из закваски — крем-сыр. Короткий протокол, дневник всех банок и подробности.">
 <meta property="og:title" content="Закваска на перце — от хвостика до крем-сыра">
 <meta property="og:description" content="Домашняя лаборатория: 8 банок, 3 поколения, один крем-сыр. Все замеры и провалы честно.">
 <meta property="og:image" content="https://gorgog.github.io/zakvaska/img/cream-ball-a.jpg">
@@ -32,7 +32,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
 .wrap{max-width:720px;margin:0 auto;padding:0 18px}
-header.hero{padding:34px 0 18px}
+header.hero{padding:34px 0 14px}
 .kicker{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
 h1{font-size:clamp(28px,7vw,40px);line-height:1.1;margin:8px 0 10px;font-weight:800;letter-spacing:-.02em}
 .lead{font-size:17px;color:var(--ink2);margin:0 0 16px;max-width:60ch}
@@ -40,15 +40,17 @@ h1{font-size:clamp(28px,7vw,40px);line-height:1.1;margin:8px 0 10px;font-weight:
 .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 nav.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);margin-top:14px;padding-bottom:14px}
-nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line)}
 nav.tabs .wrap::-webkit-scrollbar{display:none}
-.tab{appearance:none;background:none;border:0;padding:14px 10px 12px;font:inherit;font-weight:700;font-size:15px;color:var(--ink2);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.tab{appearance:none;background:none;border:0;padding:14px 8px 12px;font:inherit;font-weight:700;font-size:14.5px;color:var(--ink2);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;flex:1 1 auto;text-align:center}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
-.tab .n{display:inline-block;margin-left:6px;font-size:12px;padding:1px 7px;border-radius:999px;background:var(--grey-bg);color:var(--grey)}
+.tab .n{display:inline-block;margin-left:5px;font-size:12px;padding:1px 7px;border-radius:999px;background:var(--grey-bg);color:var(--grey)}
+@media (max-width:420px){.tab .n{display:none}.tab{padding:14px 5px 12px;font-size:14px}}
 main{padding:26px 0 60px}
 section[hidden]{display:none}
-section[role="tabpanel"],article.card{scroll-margin-top:90px}
+section[role="tabpanel"],article.card,.card[id]{scroll-margin-top:90px}
 h2{font-size:clamp(22px,5.5vw,28px);line-height:1.2;margin:28px 0 10px;letter-spacing:-.01em}
+h2:first-child{margin-top:0}
 h3{font-size:18px;margin:22px 0 8px}
 p{margin:0 0 12px}
 ul,ol{margin:0 0 14px;padding-left:22px}
@@ -58,6 +60,7 @@ li{margin:4px 0}
 .b-mid{background:var(--amber-bg);color:var(--amber)} .b-info{background:var(--grey-bg);color:var(--grey)}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
 .card h3{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
 .meta{color:var(--ink2);font-size:14px;margin:-4px 0 10px}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
 .fact{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:12px}
@@ -70,28 +73,39 @@ li{margin:4px 0}
 .gal button{appearance:none;border:0;padding:0;background:var(--grey-bg);border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:3/4}
 .gal img{width:100%;height:100%;object-fit:cover;display:block}
 .kv{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0 12px}
-.kv td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+.kv td,.kv th{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
 .kv td:first-child{color:var(--ink2);width:38%}
+.kv th{color:var(--ink2);font-weight:600;border-top:0;font-size:13px}
 .note{border-left:4px solid var(--accent);background:var(--bg2);padding:12px 14px;border-radius:0 14px 14px 0;margin:14px 0}
 .note ul{margin-bottom:4px}
+.note p:last-child{margin-bottom:0}
 .warn{border-left-color:var(--red)}
 .warn > b{color:var(--red)}
 .quote{border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--ink2);font-style:italic;margin:10px 0}
 .timeline{list-style:none;padding:0;margin:14px 0}
-.timeline li{position:relative;padding:0 0 18px 30px}
+.timeline li{position:relative;padding:0 0 16px 30px}
 .timeline li::before{content:"";position:absolute;left:8px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg)}
 .timeline li::after{content:"";position:absolute;left:12px;top:18px;bottom:-4px;width:2px;background:var(--line)}
 .timeline li:last-child::after{display:none}
 .timeline .d{font-size:12px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
 .timeline .fail::before{background:var(--red)} .timeline .ok::before{background:var(--green)}
-.steps{counter-reset:s;list-style:none;padding:0}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0 0 6px}
 .steps li{counter-increment:s;position:relative;padding:0 0 12px 40px}
 .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.stage{display:flex;gap:14px;align-items:flex-start}
+.stage .num{flex:0 0 44px;height:44px;border-radius:14px;background:var(--ink);color:var(--bg);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+.stage .t{font-size:13px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.stage h3{margin:2px 0 6px}
 .scores{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
 .score{background:var(--grey-bg);border-radius:10px;padding:8px 12px;font-size:14px}
 .score b{font-size:18px;margin-left:4px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:520px){.two{grid-template-columns:1fr}}
+.rules{list-style:none;padding:0;margin:0}
+.rules li{padding:10px 0;border-top:1px solid var(--line);display:flex;gap:12px}
+.rules li:first-child{border-top:0;padding-top:0}
+.rules li:last-child{padding-bottom:0}
+.rules .i{flex:0 0 26px;font-size:20px;line-height:1.2}
 footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);font-size:14px}
 .lb{position:fixed;inset:0;background:rgba(10,8,6,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;flex-direction:column;gap:10px}
 .lb.open{display:flex}
@@ -107,10 +121,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
   <div class="wrap">
     <div class="kicker">Домашняя лаборатория · сентябрь 2026</div>
     <h1>Закваска на перце: от хвостика до крем-сыра</h1>
-    <p class="lead">Молоко, острый перец и ни одной покупной закваски. Восемь банок, три поколения, три провала и один крем-сыр, который два человека независимо назвали крем-сыром. Все замеры — как были, без прикрас.</p>
+    <p class="lead">Молоко, острый перец и ни одной покупной закваски. Три поколения — и из сливок выходит крем-сыр. Все банки, включая провалы, — в дневнике.</p>
     <div class="links">
-      <a class="btn primary" href="https://www.instagram.com/vkusno.george/" target="_blank" rel="noopener">Instagram — видео опытов</a>
-      <a class="btn" href="#povtorit" data-go="povtorit">Как повторить</a>
+      <a class="btn primary" href="#povtorit" data-go="povtorit">Как повторить</a>
+      <a class="btn" href="https://www.instagram.com/vkusno.george/" target="_blank" rel="noopener">Instagram — видео</a>
     </div>
   </div>
 </header>
@@ -120,6 +134,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     <button class="tab" role="tab" id="t-rezultat" data-tab="rezultat" aria-selected="true">Результат</button>
     <button class="tab" role="tab" id="t-povtorit" data-tab="povtorit" aria-selected="false">Как повторить</button>
     <button class="tab" role="tab" id="t-dnevnik" data-tab="dnevnik" aria-selected="false">Дневник <span class="n">8</span></button>
+    <button class="tab" role="tab" id="t-podrobno" data-tab="podrobno" aria-selected="false">Подробно</button>
   </div>
 </nav>
 
@@ -127,127 +142,104 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
 
 <!-- ================= РЕЗУЛЬТАТ ================= -->
 <section id="rezultat" role="tabpanel" aria-labelledby="t-rezultat">
-  <span class="badge b-ok">Получилось</span> <span class="badge b-info">Серия 3 · 16 сентября</span>
+  <span class="badge b-ok">Получилось</span> <span class="badge b-info">16 сентября</span>
   <h2 style="margin-top:10px">Крем-сыр на дикой закваске с перца</h2>
-  <p>Сливки 20 % заквасил своей перечной культурой, оставил при комнатной температуре на ночь и убрал в холодильник. Задумывалась сметана. Вышло плотнее: ложка поднимает гладкий шар, а при наклоне чашки масса не течёт.</p>
+  <p>Сливки 20 % заквасил своей перечной культурой, оставил при комнатной температуре, потом убрал в холодильник. Задумывалась сметана — вышло плотнее: ложка поднимает гладкий шар, при наклоне чашки масса не течёт.</p>
 
   <figure class="hero-img">
     <img src="img/cream-ball-a.jpg" alt="Ложка поднимает гладкий белый шар крем-сыра из чашки" loading="eager">
-    <figcaption>16 сентября, после суток в холодильнике. Никакого процеживания, соли и загустителей — только сливки и закваска.</figcaption>
+    <figcaption>Без процеживания, соли и загустителей — только сливки и закваска.</figcaption>
   </figure>
 
   <div class="facts">
-    <div class="fact"><b>20 %</b><span>сливки, покупные, без стабилизаторов</span></div>
-    <div class="fact"><b>5 %</b><span>закваски — 5 мл на 100 мл</span></div>
-    <div class="fact"><b>22–24 °C</b><span>на столе, не в бане</span></div>
-    <div class="fact"><b>≈19 ч</b><span>до плотного сгустка, потом холод</span></div>
+    <div class="fact"><b>20 %</b><span>сливки, без стабилизаторов</span></div>
+    <div class="fact"><b>1 ч. л.</b><span>закваски на 100 мл</span></div>
+    <div class="fact"><b>22–24 °C</b><span>на столе, ≈6 часов</span></div>
+    <div class="fact"><b>ночь</b><span>в холодильнике</span></div>
   </div>
 
-  <h3>Что получилось на вкус</h3>
-  <p>Пробовали двое, не сговариваясь. Оба назвали одно и то же слово.</p>
-  <p class="quote">«Похоже на творожный сыр, только не такой твёрдый. Что-то среднее между сметаной и крем-сыром. Обычный молочный вкус без примесей, но при этом есть свой уникальный вкус, который сложно описать. Крем-сырный вкус точно присутствует. И небольшая кислинка».<br><span class="small">— жена</span></p>
-  <p class="quote">«То же самое, плюс чуть-чуть стороннего вкуса — но он добавляет интерес».<br><span class="small">— автор</span></p>
+  <h3>На вкус</h3>
+  <p class="quote">«Что-то среднее между сметаной и крем-сыром. Чистый молочный вкус без примесей — и при этом свой, который сложно описать. Небольшая кислинка».<br><span class="small">— жена, не зная, что пробует</span></p>
   <div class="scores">
     <div class="score">кислота <b>2</b><span class="small">/5</span></div>
     <div class="score">сливочность <b>4</b><span class="small">/5</span></div>
     <div class="score">аромат <b>4</b><span class="small">/5</span></div>
     <div class="score">общая <b>5</b><span class="small">/5</span></div>
   </div>
+  <p>Это не йогурт и не станет им: с перца приходят «комнатные» бактерии — те же, что делают сметану и крем-сыр. Из молока у них получается простокваша, из сливок — вот это.</p>
 
   <div class="gal" data-gal>
-    <button data-src="img/cream-setup.jpg" data-cap="15 сентября, 18:05 — сливки только что заквашены. Пока жидкие."><img src="img/t/cream-setup.jpg" alt="Чашка с жидкими сливками при постановке" loading="lazy"></button>
-    <button data-src="img/cream-ball-b.jpg" data-cap="16 сентября — чашка наклонена, масса стоит на месте."><img src="img/t/cream-ball-b.jpg" alt="Наклонённая чашка, масса не течёт" loading="lazy"></button>
-    <button data-src="img/series3-box.jpg" data-cap="Серия 3 в контейнере: слева сливки, справа топлёное молоко."><img src="img/t/series3-box.jpg" alt="Две чашки серии 3 в прозрачном контейнере" loading="lazy"></button>
+    <button data-src="img/cream-setup.jpg" data-cap="Сливки только что заквашены — пока жидкие."><img src="img/t/cream-setup.jpg" alt="Чашка с жидкими сливками при постановке" loading="lazy"></button>
+    <button data-src="img/cream-ball-b.jpg" data-cap="Чашка наклонена — масса стоит на месте."><img src="img/t/cream-ball-b.jpg" alt="Наклонённая чашка, масса не течёт" loading="lazy"></button>
+    <button data-src="img/sz2-cube.jpg" data-cap="Предыдущее поколение на молоке: простокваша, которая режется кубиком."><img src="img/t/sz2-cube.jpg" alt="Ложка с кубиком сгустка" loading="lazy"></button>
   </div>
 
-  <h3>Почему это крем-сыр, а не йогурт</h3>
-  <p>С хвостика перца в молоко приходят «комнатные» молочнокислые бактерии — лактококки, лейконостоки, вайселлы. Это та же группа, которой на производстве заквашивают сметану, пахту и крем-сыр. Йогуртовый вкус дают другие бактерии, которым нужно 42–45 °C; у этой культуры их нет, и никакой температурой их не вырастить. Поэтому из молока получается простокваша, а из сливок — сметана и крем-сыр.</p>
-  <p>Плотность здесь сложилась из трёх вещей: жир сливок, прогрев 85 °C десять минут и медленное сквашивание при 22–24 °C. В серии 2 та же культура при 28 °C отдала вдвое больше сыворотки, чем при комнатной температуре, — этот результат и подсказал режим.</p>
-
-  <h3>Откуда взялась закваска</h3>
+  <h3>Путь до этой чашки</h3>
   <ul class="timeline">
-    <li class="fail"><div class="d">9 сентября · опыт 0</div>Миска молока на 45 °C, в ней целые перцы и их шляпки. Через двое суток молоко загустело, потом расслоилось, перцы начали портиться. Как продукт — провал. Но культура в миске завелась.</li>
-    <li class="ok"><div class="d">13 сентября · СЗ-1</div>Та же культура, но правильный режим: молоко 85 °C десять минут, остудить до 29 °C, 5 % закваски, 28 °C и полный покой. Сгусток меньше чем за 8 часов, разрез держит. Виновата была не культура, а протокол.</li>
-    <li class="ok"><div class="d">14 сентября · СЗ-2 и СЗ-2-холод</div>Одна порция молока, две банки: 28 °C против 22–24 °C. Холодная выиграла — вдвое меньше сыворотки, мягче запах, появилась сметанная нота. Перечный привкус ушёл в обеих.</li>
-    <li class="ok"><div class="d">15 сентября · СЗ-3-сливки</div>Закваска из СЗ-2 в сливки 20 %, 22–24 °C. Утром — крем-сыр.</li>
-    <li class="fail"><div class="d">Параллельно · линия П</div>Отдельная линия только на хвостиках, без самих перцев: первое поколение расслоилось, как и положено предкультуре, а второе дало газ и посторонний запах. Вылил. Дикая закваска — это лотерея, и об этом честно в дневнике.</li>
+    <li class="fail"><div class="d">9 сентября</div>Перцы в тёплом молоке на двое суток. Расслоилось, перцы начали портиться — но культура завелась.</li>
+    <li class="ok"><div class="d">13 сентября</div>Та же культура в правильном режиме: прогретое молоко, покой. Сгусток за 8 часов, режется.</li>
+    <li class="ok"><div class="d">14 сентября</div>Две одинаковые банки, 28 °C против комнатной. Комнатная выиграла: вдвое меньше сыворотки, сливочнее.</li>
+    <li class="ok"><div class="d">15 сентября</div>Закваска в сливки 20 %. Крем-сыр.</li>
   </ul>
-
-  <h3>Как повторить крем-сыр, если закваска уже есть</h3>
-  <ol class="steps">
-    <li><b>Сливки 20 %</b>, 300–400 мл. В составе только сливки: без каррагинана, стабилизаторов и сахара — загуститель даст плотность вместо бактерий.</li>
-    <li>Прогреть <b>85 °C десять минут</b> на водяной бане, остудить до <b>29 °C</b>.</li>
-    <li>Внести <b>5 % закваски</b> чистым шприцем или ложкой, размешать один раз и больше не трогать.</li>
-    <li>Затянуть плёнкой, оставить на столе при <b>22–24 °C</b> на <b>16–20 часов</b>. Тёплая масса жиже, чем кажется нужным, — это нормально.</li>
-    <li>В холодильник на <b>12–24 часа</b>: большая часть плотности появляется именно там.</li>
-    <li>Хочешь, чтобы мазался, — откинуть на марлю на 2–3 часа и посолить: щепотка на 100 г. Хочешь сметану — не процеживать, а размешать ложкой 10–15 секунд и снова в холод.</li>
-  </ol>
-  <div class="note"><b>Размешивание не делает плотнее.</b> Кислотный сгусток ломается один раз и заново не собирается: чем дольше мешаешь, тем жиже. Плотность берётся из жира, кислоты и холода.</div>
-
-  <p>Как вырастить саму закваску с нуля — на вкладке <a href="#povtorit" data-go="povtorit">«Как повторить»</a>. Все банки с замерами, включая провалы, — в <a href="#dnevnik" data-go="dnevnik">дневнике</a>.</p>
+  <p>Пошаговый рецепт — во вкладке <a href="#povtorit" data-go="povtorit">«Как повторить»</a>. Почему всё так работает и что пошло не так по дороге — в <a href="#podrobno" data-go="podrobno">«Подробно»</a>.</p>
 </section>
 
 <!-- ================= КАК ПОВТОРИТЬ ================= -->
 <section id="povtorit" role="tabpanel" aria-labelledby="t-povtorit" hidden>
-  <h2>Как вырастить закваску с перца</h2>
-  <p>Это домашний опыт с дикой культурой, а не рецепт из книги. Что именно живёт на хвостике перца, никто заранее не знает, поэтому правила безопасности здесь не формальность.</p>
+  <h2>Как повторить</h2>
+  <p>Две части: сначала вырастить закваску — три поколения по дню каждое, — потом заквасить ею сливки.</p>
 
   <div class="note warn">
-    <b>Прежде чем начинать</b>
-    <ul>
-      <li><b>Молоко всегда прогревать: 85 °C десять минут.</b> Домашнее — обязательно: в сыром бывает бруцеллёз, и кислота убивает его не сразу. Молоко из пакета долгого хранения достаточно нагреть до 30 °C.</li>
-      <li><b>Первые два поколения не пробовать.</b> Проба — только с третьего, и только если молоко скисло за сутки и пахнет чисто кисломолочным.</li>
-      <li><b>Выливать не пробуя:</b> пузыри и вздутие, плёнка, цветные точки, пушок, запах дрожжей, сидра, капусты или гнили, горечь без кислого запаха.</li>
-      <li>Беременным, маленьким детям и людям со слабым иммунитетом — покупная закваска, а не дикая.</li>
-      <li><b>Сомневаешься — выливай.</b> Моя линия на хвостиках на втором поколении дала газ и чужой запах, и я вылил всё. Это нормальный исход, а не ошибка.</li>
+    <b>Три правила</b>
+    <ul class="rules" style="margin-top:8px">
+      <li><span class="i">🔥</span><span>Молоко и сливки всегда прогревать: <b>85 °C десять минут</b>, потом остудить до тёплого.</span></li>
+      <li><span class="i">🚫</span><span><b>Первые два поколения не пробовать.</b> Есть можно с третьего.</span></li>
+      <li><span class="i">👃</span><span>Пахнет не кисломолочным, пузырится, плёнка сверху — <b>вылить</b>. Сомневаешься — тоже вылить.</span></li>
     </ul>
   </div>
 
-  <h3>Поколение 1 — предкультура</h3>
-  <p>Цель — не продукт, а набрать плотность бактерий. С хвостика смывается несколько тысяч клеток, для сгустка нужны миллиарды, поэтому объём маленький.</p>
-  <ol class="steps">
-    <li><b>5 хвостиков острого перца с зелёными чашелистиками.</b> С рынка, свежие, не из плёнки. Не мыть.</li>
-    <li>Ёмкость на 20–50 мл, ложку и вилку обдать кипятком.</li>
-    <li><b>15–30 мл молока</b> прогреть 85 °C десять минут (термометр в молоке, не в воде), остудить до <b>29 °C</b>.</li>
-    <li>Хвостики — прямо в молоко. Потрясти. <b>2–3 часа при 28–30 °C</b>, затем вынуть их чистой вилкой.</li>
-    <li>Затянуть плёнкой и оставить в покое при <b>28–30 °C на 24–48 часов</b>. Не открывать, не двигать.</li>
-    <li>Готово, когда закисло. <b>Первое поколение обычно не густеет, а расслаивается</b> на хлопья и сыворотку — это норма, если запах чисто кисломолочный.</li>
-  </ol>
+  <h3>Часть 1 — закваска</h3>
 
-  <h3>Поколение 2 и 3</h3>
-  <ol class="steps">
-    <li>Предыдущую банку размешать до однородности: клетки сидят в хлопьях, а не в сыворотке.</li>
-    <li><b>5 мл на 100 мл</b> прогретого и остуженного до 29 °C молока. Размешать один раз.</li>
-    <li><b>28 °C, покой, 12–24 часа.</b> Готовность проверять только наклоном: масса отходит от стенки одним куском. Ложкой в это время не лезть — рвётся белковая сетка, и потом отходит лишняя сыворотка.</li>
-    <li>Сразу в холодильник на 6–8 часов, потом замеры и — с третьего поколения — проба.</li>
-    <li>Когда закваска стабильно схватывает молоко за сутки, следующие поколения вести при <b>22–24 °C</b>: медленнее, зато вдвое меньше сыворотки и сливочнее аромат.</li>
-  </ol>
-
-  <div class="note"><b>Ставь две банки с разных перцев.</b> Одна может уйти в газ и чужой запах, как моя П-2, и тогда линия не пропадёт.</div>
-
-  <h3>Что записывать</h3>
-  <p>Без записей опыты не сравниваются. На каждую банку: молоко и объём, прогрев, температура, доля закваски, время постановки, час, когда встал сгусток, сколько мл сыворотки отошло, держит ли стенка разрез, запах, вкус. Я веду это в Obsidian — из этих заметок и собран сайт.</p>
-
-  <h3>Две дороги для готовой закваски</h3>
-  <div class="two">
-    <div class="card">
-      <h3>Сметана</h3>
-      <p class="small">Сливки 20 %, 85 °C десять минут, остудить до 24 °C, 5 % закваски. Накрыть неплотно — аромату нужен воздух. 20–22 °C, 16–20 часов, снимать при отчётливой кислинке. Размешать 10–15 секунд, в холодильник на 12–24 часа. Не солить.</p>
-    </div>
-    <div class="card">
-      <h3>Крем-сыр</h3>
-      <p class="small">То же, но плёнка внатяг, 22–24 °C и полный покой до плотного сгустка. Холодильник 12 часов, потом процедить 2–3 часа, посолить щепоткой на 100 г и взбить холодным. Хранится 3–5 дней.</p>
+  <div class="card stage">
+    <div class="num">1</div>
+    <div>
+      <div class="t">Поколение 1 · сутки-двое</div>
+      <h3>Хвостики в ложку молока</h3>
+      <p>5 хвостиков острого перца с зелёной шапочкой, с рынка, не мыть. Положить в <b>2 столовые ложки</b> прогретого и остуженного до тёплого молока. Через <b>2–3 часа хвостики вынуть</b>, чашку накрыть и оставить в тёплом месте.</p>
+      <p class="small">Готово, когда закисло. Первое поколение не густеет, а расслаивается на хлопья и сыворотку — так и должно быть, если пахнет кисломолочным.</p>
     </div>
   </div>
 
-  <h3>Ошибки, которые уже сделаны за тебя</h3>
-  <ul>
-    <li><b>Целые перцы на двое суток в тёплом молоке</b> — молоко расслоилось, перцы начали портиться. Работают хвостики, и через 2–3 часа их вынимают.</li>
-    <li><b>Не прогретое молоко и банка, которую трогали</b> в момент схватывания, — первая партия разъехалась в сыворотку. Та же культура в правильном режиме встала за 8 часов.</li>
-    <li><b>45 °C для перечной культуры</b> — слишком тепло: эти бактерии любят 28–30, а при 37–40 выигрывают посторонние.</li>
-    <li><b>Топлёное молоко, упаренное в 5 раз</b> — не схватилось за сутки, а вкус вышел кисло-сладко-солёный: соли молока сконцентрировались вместе с сахаром. Упаривать не больше чем на треть.</li>
-    <li><b>Взбивать, чтобы стало плотнее</b> — стало жиже. Сгусток ломается необратимо.</li>
-  </ul>
+  <div class="card stage">
+    <div class="num">2</div>
+    <div>
+      <div class="t">Поколение 2 · 6–12 часов</div>
+      <h3>Ложка на стакан</h3>
+      <p>Размешать первую чашку. <b>1 чайную ложку</b> — в <b>100 мл</b> прогретого тёплого молока, размешать один раз. Накрыть и оставить при комнатной температуре, не трогать. Встал сгусток — в холодильник.</p>
+    </div>
+  </div>
+
+  <div class="card stage">
+    <div class="num">3</div>
+    <div>
+      <div class="t">Поколение 3 · 6–12 часов</div>
+      <h3>Ещё раз то же самое</h3>
+      <p>Чайная ложка из второй чашки — в новые 100 мл. Если схватилось за день и пахнет чистой простоквашей — <b>закваска готова</b>. Отсюда её можно есть и вести дальше: ложка из последней чашки в новое молоко, и так сколько угодно.</p>
+    </div>
+  </div>
+
+  <h3>Часть 2 — крем-сыр</h3>
+  <div class="card">
+    <ol class="steps">
+      <li><b>Сливки 20 %</b>, в составе только сливки. Прогреть 85 °C десять минут, остудить до тёплого.</li>
+      <li><b>Чайная ложка закваски на каждые 100 мл.</b> Размешать один раз, накрыть.</li>
+      <li>Комнатная температура, <b>6–12 часов</b> — пока не встанет плотно. Не трогать.</li>
+      <li>В холодильник <b>на ночь</b>. Утром — крем-сыр.</li>
+    </ol>
+    <p class="small"><b>Чтобы мазался:</b> откинуть на марлю на 2–3 часа и посолить — щепотка на 100 г.<br><b>Хочешь сметану:</b> не процеживать, а размешать ложкой и вернуть в холод.</p>
+  </div>
+
+  <p class="small">Температуры, признаки готовности и ошибки, которые уже сделаны, — во вкладке <a href="#podrobno" data-go="podrobno">«Подробно»</a>.</p>
 </section>
 
 <!-- ================= ДНЕВНИК ================= -->
@@ -358,11 +350,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     <p><b>Вопрос:</b> станет ли вкус сливочнее, если сквашивать прохладнее? От СЗ-2 отличается только температурой.</p>
     <table class="kv">
       <tr><td>Режим</td><td>то же молоко и посев; на столе, 22–24 °C, не в бане</td></tr>
-      <tr><td>Через 18 ч</td><td>гладкий глянцевый сгусток без пузырей; держит форму, но мягче СЗ-2</td></tr>
+      <tr><td>К утру</td><td>гладкий глянцевый сгусток без пузырей; держит форму, но мягче СЗ-2</td></tr>
       <tr><td>Сыворотка</td><td>≈ 5 мл — вдвое меньше, чем у СЗ-2</td></tr>
       <tr><td>Запах</td><td>лучший из трёх: не резкий, простокваша со сметанной ноткой</td></tr>
     </table>
-    <p><b>Вывод:</b> прохлада выиграла по сыворотке и аромату. Следующие поколения — при 22–24 °C. Цена — время: сгусток идёт дольше, чем 4–6 часов при 28.</p>
+    <p><b>Вывод:</b> прохлада выиграла по сыворотке и аромату. Следующие поколения — при комнатной температуре. Цена — время: сгусток идёт дольше, чем 4–6 часов при 28.</p>
     <div class="gal" data-gal>
       <button data-src="img/sz2h-setup.jpg" data-cap="Постановка: чашка затянута плёнкой, стоит на столе рядом с баней."><img src="img/t/sz2h-setup.jpg" alt="Чашка под плёнкой" loading="lazy"></button>
       <button data-src="img/sz2h-smooth.jpg" data-cap="15 сентября — гладкий сгусток, пузырей нет, сыворотки заметно меньше."><img src="img/t/sz2h-smooth.jpg" alt="Гладкий сгусток в чашке" loading="lazy"></button>
@@ -396,7 +388,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     <table class="kv">
       <tr><td>Прогрев</td><td>85 °C · 10 мин → 29 °C</td></tr>
       <tr><td>Посев</td><td>5 % из СЗ-2; 22–24 °C, плёнка</td></tr>
-      <tr><td>Через 19 ч</td><td>очень плотная: ложка поднимает гладкий шар, при наклоне не течёт, пузырей нет</td></tr>
+      <tr><td>Сгусток</td><td>примерно за 4–6 ч, потом в холодильник на ночь (момент по памяти, не по часам)</td></tr>
+      <tr><td>Наутро</td><td>очень плотная: ложка поднимает гладкий шар, при наклоне не течёт, пузырей нет</td></tr>
       <tr><td>Вкус</td><td>крем-сыр — между сметаной и творожным сыром; чистый молочный вкус, небольшая кислинка, свой оттенок</td></tr>
       <tr><td>Оценки</td><td>кислота 2 · сливочность 4 · аромат 4 · общая 5</td></tr>
     </table>
@@ -409,6 +402,65 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
   </article>
 
   <p class="small">Дальше по плану: закваска для сметаны и крем-сыра как отдельный ролик, смеси со сливками и повтор перечной линии двумя банками. Новые банки будут появляться здесь же.</p>
+</section>
+
+<!-- ================= ПОДРОБНО ================= -->
+<section id="podrobno" role="tabpanel" aria-labelledby="t-podrobno" hidden>
+  <h2>Подробно</h2>
+  <p>Всё, что не влезло в короткий рецепт: температуры, признаки готовности, безопасность и ошибки, которые уже сделаны.</p>
+
+  <h3>Температуры и время</h3>
+  <table class="kv">
+    <tr><th>Что</th><th>Температура</th><th>Сколько ждать</th></tr>
+    <tr><td>Поколение 1</td><td>тепло, 25–30 °C</td><td>сутки-двое, пока не закиснет</td></tr>
+    <tr><td>Поколения 2–3</td><td>комнатная 22–24 °C</td><td>6–12 часов</td></tr>
+    <tr><td>Те же, но 28 °C</td><td>водяная баня</td><td>4–8 часов — быстрее, но сыворотки вдвое больше</td></tr>
+    <tr><td>Крем-сыр на сливках</td><td>комнатная 22–24 °C</td><td>6–12 часов, потом ночь в холодильнике</td></tr>
+  </table>
+  <p>Часы — ориентир, а не правило. <b>Готовность проверять наклоном:</b> масса отходит от стенки одним куском. Ложкой в это время не лезть: сетка рвётся, и потом отходит лишняя сыворотка. Плотность добирается на холоде, поэтому судить только после холодильника.</p>
+  <p><b>Прогрев — 85 °C десять минут</b>, не «довести до 85». Термометр в молоке, не в воде. Остудить до 29–30 °C: горячее убьёт закваску, а 37–40 °C — температура, при которой выигрывают посторонние. Молоко из пакета долгого хранения достаточно нагреть до тёплого.</p>
+  <p><b>Доза закваски — 5 %</b>: чайная ложка на 100 мл, столовая на 300. Больше не нужно, меньше — дольше ждать.</p>
+
+  <h3>Безопасность</h3>
+  <div class="note warn">
+    <ul>
+      <li><b>Прогревать всегда.</b> В сыром домашнем молоке бывает бруцеллёз, и кислота убивает его не сразу.</li>
+      <li><b>Первые два поколения не пробовать.</b> С хвостика приходят не только полезные бактерии; кислота вытесняет посторонних постепенно.</li>
+      <li><b>Выливать не пробуя:</b> пузыри и вздутие, плёнка, цветные точки, пушок, запах дрожжей, сидра, капусты или гнили, горечь без кислого запаха.</li>
+      <li>Беременным, маленьким детям и людям со слабым иммунитетом — покупная закваска, а не дикая.</li>
+      <li><b>Ставь две банки с разных перцев.</b> Одна может уйти в газ, как моя П-2, и линия не пропадёт.</li>
+    </ul>
+  </div>
+
+  <h3>Почему крем-сыр, а не йогурт</h3>
+  <p>С хвостика перца в молоко приходят «комнатные» молочнокислые бактерии — лактококки, лейконостоки, вайселлы. Это та же группа, которой на производстве заквашивают сметану, пахту и крем-сыр. Йогуртовый вкус дают другие бактерии, которым нужно 42–45 °C; у этой культуры их нет, и никакой температурой их не вырастить. Из молока получается простокваша, из сливок — сметана и крем-сыр.</p>
+  <p>Плотность сложилась из трёх вещей: жир сливок, прогрев 85 °C десять минут и медленное сквашивание при комнатной температуре. В серии 2 та же культура при 28 °C отдала вдвое больше сыворотки, чем при 22–24 °C, — этот результат и задал режим.</p>
+  <p>Промышленный крем-сыр делают почти так же — сливки плюс такие же бактерии, — только потом отделяют сыворотку, взбивают горячим и добавляют соль и стабилизаторы. Новое здесь не рецепт, а закваска: дикое сообщество с плодоножки перца со своим оттенком вкуса.</p>
+
+  <h3>Сметана или крем-сыр — одна закваска, разный финал</h3>
+  <div class="two">
+    <div class="card">
+      <h3>Сметана</h3>
+      <p class="small">Сливки 20 %, прогреть, остудить до 24 °C, 5 % закваски. Накрыть неплотно — аромату нужен воздух. 20–22 °C, снимать при отчётливой кислинке. Размешать 10–15 секунд, в холодильник на 12–24 часа. Не солить.</p>
+    </div>
+    <div class="card">
+      <h3>Крем-сыр</h3>
+      <p class="small">То же, но плёнка внатяг и полный покой до плотного сгустка. Холодильник на ночь, потом процедить 2–3 часа, посолить щепоткой на 100 г и взбить холодным. Хранится 3–5 дней.</p>
+    </div>
+  </div>
+  <div class="note"><b>Размешивание не делает плотнее.</b> Кислотный сгусток ломается один раз и заново не собирается: чем дольше мешаешь, тем жиже. Плотность берётся из жира, кислоты и холода. Жирные сливки к тому же можно сбить в масло — мешать ложкой и коротко.</div>
+
+  <h3>Ошибки, которые уже сделаны</h3>
+  <ul>
+    <li><b>Целые перцы на двое суток в тёплом молоке</b> — расслоилось, перцы начали портиться. Работают хвостики, и через 2–3 часа их вынимают.</li>
+    <li><b>Не прогретое молоко и банка, которую трогали</b> в момент схватывания, — первая партия разъехалась в сыворотку. Та же культура в правильном режиме встала за 8 часов.</li>
+    <li><b>45 °C для перечной культуры</b> — слишком тепло: эти бактерии любят 28–30, а при 37–40 выигрывают посторонние.</li>
+    <li><b>Топлёное молоко, упаренное в 5 раз</b> — не схватилось за сутки, а вкус вышел кисло-сладко-солёный: соли молока сконцентрировались вместе с сахаром. Упаривать не больше чем на треть.</li>
+    <li><b>Взбивать, чтобы стало плотнее</b> — стало жиже.</li>
+  </ul>
+
+  <h3>Что записывать</h3>
+  <p>Без записей опыты не сравниваются. На каждую банку: молоко и объём, прогрев, температура, доля закваски, время постановки, час, когда встал сгусток, сколько мл сыворотки отошло, держит ли стенка разрез, запах, вкус. Я веду это в Obsidian — из этих заметок и собран сайт.</p>
 </section>
 
 </main>
@@ -429,7 +481,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
 <script>
 (function(){
   var tabs = document.querySelectorAll('.tab');
-  var panels = {rezultat: document.getElementById('rezultat'), povtorit: document.getElementById('povtorit'), dnevnik: document.getElementById('dnevnik')};
+  var panels = {rezultat: document.getElementById('rezultat'), povtorit: document.getElementById('povtorit'), dnevnik: document.getElementById('dnevnik'), podrobno: document.getElementById('podrobno')};
   function show(name, scroll){
     if(!panels[name]) name = 'rezultat';
     tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'); });
