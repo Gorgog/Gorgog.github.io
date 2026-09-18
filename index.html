@@ -37,6 +37,7 @@ header.hero{padding:34px 0 14px}
 h1{font-size:clamp(28px,7vw,40px);line-height:1.1;margin:8px 0 10px;font-weight:800;letter-spacing:-.02em}
 .lead{font-size:17px;color:var(--ink2);margin:0 0 16px;max-width:60ch}
 .links{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:520px){.links{display:grid;grid-template-columns:1fr 1fr}.btn{justify-content:center}}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
 .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 nav.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);margin-top:14px;padding-bottom:14px}
@@ -96,8 +97,9 @@ li{margin:4px 0}
 .stage .num{flex:0 0 44px;height:44px;border-radius:14px;background:var(--ink);color:var(--bg);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
 .stage .t{font-size:13px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
 .stage h3{margin:2px 0 6px}
-.scores{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
-.score{background:var(--grey-bg);border-radius:10px;padding:8px 12px;font-size:14px}
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 14px}
+@media (max-width:520px){.scores{grid-template-columns:1fr 1fr}}
+.score{background:var(--grey-bg);border-radius:10px;padding:8px 12px;font-size:14px;text-align:center}
 .score b{font-size:18px;margin-left:4px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:520px){.two{grid-template-columns:1fr}}
@@ -106,6 +108,12 @@ li{margin:4px 0}
 .rules li:first-child{border-top:0;padding-top:0}
 .rules li:last-child{padding-bottom:0}
 .rules .i{flex:0 0 26px;font-size:20px;line-height:1.2}
+.params{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 10px}
+.params span{font-size:13px;font-weight:600;background:var(--grey-bg);color:var(--ink);padding:4px 9px;border-radius:999px}
+.filter{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+.filter button{appearance:none;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+article.card[hidden]{display:none}
 footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);font-size:14px}
 .lb{position:fixed;inset:0;background:rgba(10,8,6,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;flex-direction:column;gap:10px}
 .lb.open{display:flex}
@@ -187,12 +195,22 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
 <!-- ================= КАК ПОВТОРИТЬ ================= -->
 <section id="povtorit" role="tabpanel" aria-labelledby="t-povtorit" hidden>
   <h2>Как повторить</h2>
-  <p>Две части: сначала вырастить закваску — три поколения по дню каждое, — потом заквасить ею сливки.</p>
+  <p>Две части: сначала вырастить закваску — три поколения, по дню на каждое, — потом заквасить ею сливки.</p>
+
+  <div class="card">
+    <h3>Что нужно</h3>
+    <ul>
+      <li>Острый перец с зелёными хвостиками — с рынка, не мытый</li>
+      <li>Молоко, любое: домашнее тоже годится, оно будет прогрето</li>
+      <li>Сливки 20 % для крем-сыра, в составе только сливки</li>
+      <li>Термометр для молока, маленькая чашка, пищевая плёнка</li>
+    </ul>
+  </div>
 
   <div class="note warn">
     <b>Три правила</b>
     <ul class="rules" style="margin-top:8px">
-      <li><span class="i">🔥</span><span>Молоко и сливки всегда прогревать: <b>85 °C десять минут</b>, потом остудить до тёплого.</span></li>
+      <li><span class="i">🔥</span><span>Молоко и сливки всегда прогревать: <b>85 °C десять минут</b>, потом остудить до <b>≈30 °C</b> — тёплое, не горячее.</span></li>
       <li><span class="i">🚫</span><span><b>Первые два поколения не пробовать.</b> Есть можно с третьего.</span></li>
       <li><span class="i">👃</span><span>Пахнет не кисломолочным, пузырится, плёнка сверху — <b>вылить</b>. Сомневаешься — тоже вылить.</span></li>
     </ul>
@@ -203,43 +221,48 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
   <div class="card stage">
     <div class="num">1</div>
     <div>
-      <div class="t">Поколение 1 · сутки-двое</div>
+      <div class="t">Поколение 1</div>
       <h3>Хвостики в ложку молока</h3>
-      <p>5 хвостиков острого перца с зелёной шапочкой, с рынка, не мыть. Положить в <b>2 столовые ложки</b> прогретого и остуженного до тёплого молока. Через <b>2–3 часа хвостики вынуть</b>, чашку накрыть и оставить в тёплом месте.</p>
-      <p class="small">Готово, когда закисло. Первое поколение не густеет, а расслаивается на хлопья и сыворотку — так и должно быть, если пахнет кисломолочным.</p>
+      <div class="params"><span>🌡 25–30 °C, тёплое место</span><span>⏱ сутки-двое</span><span>5 хвостиков · 2 ст. л. молока</span></div>
+      <p>Прогреть молоко, остудить до ≈30 °C, налить 2 столовые ложки в маленькую чашку. Положить 5 хвостиков с зелёной шапочкой. Через <b>2–3 часа хвостики вынуть</b>, чашку затянуть плёнкой и поставить в тёплое место: тёплая кухня, у батареи, выключенная духовка с лампочкой.</p>
+      <p class="small">Готово, когда закисло — пахнет простоквашей. Первое поколение не густеет, а расслаивается на хлопья и сыворотку: так и должно быть.</p>
     </div>
   </div>
 
   <div class="card stage">
     <div class="num">2</div>
     <div>
-      <div class="t">Поколение 2 · 6–12 часов</div>
+      <div class="t">Поколение 2</div>
       <h3>Ложка на стакан</h3>
-      <p>Размешать первую чашку. <b>1 чайную ложку</b> — в <b>100 мл</b> прогретого тёплого молока, размешать один раз. Накрыть и оставить при комнатной температуре, не трогать. Встал сгусток — в холодильник.</p>
+      <div class="params"><span>🌡 22–24 °C, на столе</span><span>⏱ 6–12 часов</span><span>1 ч. л. на 100 мл</span></div>
+      <p>Первую чашку размешать. Чайную ложку из неё — в 100 мл прогретого и остуженного молока, размешать один раз, затянуть плёнкой. Оставить на столе и не трогать.</p>
+      <p class="small">Готово, когда при наклоне масса отходит от стенки одним куском. Тогда — в холодильник.</p>
     </div>
   </div>
 
   <div class="card stage">
     <div class="num">3</div>
     <div>
-      <div class="t">Поколение 3 · 6–12 часов</div>
+      <div class="t">Поколение 3</div>
       <h3>Ещё раз то же самое</h3>
-      <p>Чайная ложка из второй чашки — в новые 100 мл. Если схватилось за день и пахнет чистой простоквашей — <b>закваска готова</b>. Отсюда её можно есть и вести дальше: ложка из последней чашки в новое молоко, и так сколько угодно.</p>
+      <div class="params"><span>🌡 22–24 °C</span><span>⏱ 6–12 часов</span><span>1 ч. л. на 100 мл</span></div>
+      <p>Чайная ложка из второй чашки — в новые 100 мл. Схватилось за день и пахнет чистой простоквашей — <b>закваска готова</b>. Отсюда её можно есть и вести дальше: ложка из последней чашки в свежее молоко, и так сколько угодно.</p>
     </div>
   </div>
 
   <h3>Часть 2 — крем-сыр</h3>
   <div class="card">
+    <div class="params"><span>🌡 22–24 °C, на столе</span><span>⏱ 6–12 часов + ночь в холодильнике</span><span>1 ч. л. закваски на 100 мл сливок</span></div>
     <ol class="steps">
-      <li><b>Сливки 20 %</b>, в составе только сливки. Прогреть 85 °C десять минут, остудить до тёплого.</li>
-      <li><b>Чайная ложка закваски на каждые 100 мл.</b> Размешать один раз, накрыть.</li>
-      <li>Комнатная температура, <b>6–12 часов</b> — пока не встанет плотно. Не трогать.</li>
-      <li>В холодильник <b>на ночь</b>. Утром — крем-сыр.</li>
+      <li><b>Сливки 20 %</b>, в составе только сливки. Прогреть 85 °C десять минут, остудить до ≈30 °C.</li>
+      <li><b>Чайная ложка закваски на каждые 100 мл.</b> Размешать один раз, затянуть плёнкой.</li>
+      <li>Оставить на столе на <b>6–12 часов</b>, не трогать. Готово, когда при наклоне масса не течёт.</li>
+      <li>В холодильник <b>на ночь</b> — там она станет плотной. Утром — крем-сыр.</li>
     </ol>
     <p class="small"><b>Чтобы мазался:</b> откинуть на марлю на 2–3 часа и посолить — щепотка на 100 г.<br><b>Хочешь сметану:</b> не процеживать, а размешать ложкой и вернуть в холод.</p>
   </div>
 
-  <p class="small">Температуры, признаки готовности и ошибки, которые уже сделаны, — во вкладке <a href="#podrobno" data-go="podrobno">«Подробно»</a>.</p>
+  <p class="small">Быстрее — при 28 °C в водяной бане: 4–8 часов, но сыворотки будет вдвое больше. Остальные тонкости — во вкладке <a href="#podrobno" data-go="podrobno">«Подробно»</a>.</p>
 </section>
 
 <!-- ================= ДНЕВНИК ================= -->
@@ -247,8 +270,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
   <h2>Дневник опытов</h2>
   <p>Восемь банок по порядку. Метод один: менять по одной переменной за раз и записывать всё, что померилось. Провалы здесь на тех же правах, что и удачи, — они объясняют больше.</p>
   <p class="small">Названия: <b>П</b> — линия на одних хвостиках, <b>СЗ</b> — линия от первой миски («старая закваска»). Цифра — поколение.</p>
+  <div class="filter" role="group" aria-label="Фильтр по итогу">
+    <button data-f="all" data-label="Все" aria-pressed="true">Все</button>
+    <button data-f="ok" data-label="Успех" aria-pressed="false">Успех</button>
+    <button data-f="fail" data-label="Провал" aria-pressed="false">Провал</button>
+    <button data-f="mid" data-label="Промежуточные" aria-pressed="false">Промежуточные</button>
+  </div>
 
-  <article class="card" id="opyt-0">
+  <article class="card" id="opyt-0" data-status="fail">
     <span class="badge b-fail">Провал</span> <span class="badge b-info">Начало линии СЗ</span>
     <h3 style="margin-top:8px">Опыт 0 · миска с перцами</h3>
     <p class="meta">9 сентября · домашнее молоко · около 600 мл</p>
@@ -262,7 +291,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     <p class="small">Фото банки не сохранилось — только видео для ролика.</p>
   </article>
 
-  <article class="card" id="p-1">
+  <article class="card" id="p-1" data-status="mid">
     <span class="badge b-mid">Предкультура</span>
     <h3 style="margin-top:8px">П-1 · плодоножки в 15 мл молока</h3>
     <p class="meta">13 сентября, 18:37 · домашнее молоко · 15 мл</p>
@@ -281,7 +310,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="sz-1">
+  <article class="card" id="sz-1" data-status="ok">
     <span class="badge b-ok">Успех</span> <span class="badge b-info">Контроль</span>
     <h3 style="margin-top:8px">СЗ-1 · старая закваска в правильном режиме</h3>
     <p class="meta">13 сентября, 18:37 · домашнее молоко · 100 мл</p>
@@ -304,7 +333,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="p-2">
+  <article class="card" id="p-2" data-status="fail">
     <span class="badge b-fail">Провал</span>
     <h3 style="margin-top:8px">П-2 · перечная линия, второе поколение</h3>
     <p class="meta">14 сентября, 20:55 · домашнее молоко · 100 мл</p>
@@ -323,7 +352,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="sz-2">
+  <article class="card" id="sz-2" data-status="ok">
     <span class="badge b-ok">Успех</span> <span class="badge b-info">Эталон</span>
     <h3 style="margin-top:8px">СЗ-2 · эталон серии</h3>
     <p class="meta">14 сентября, 20:55 · домашнее молоко · 100 мл</p>
@@ -343,7 +372,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="sz-2-holod">
+  <article class="card" id="sz-2-holod" data-status="ok">
     <span class="badge b-ok">Успех</span> <span class="badge b-info">Победитель серии 2</span>
     <h3 style="margin-top:8px">СЗ-2-холод · та же культура при 22–24 °C</h3>
     <p class="meta">14 сентября, 20:55 · домашнее молоко · 100 мл</p>
@@ -361,7 +390,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="sz-3-varenets">
+  <article class="card" id="sz-3-varenets" data-status="fail">
     <span class="badge b-fail">Провал</span>
     <h3 style="margin-top:8px">СЗ-3-варенец · топлёное молоко</h3>
     <p class="meta">15 сентября, ≈20:40 · покупное молоко 3,2 % · 100 мл</p>
@@ -380,7 +409,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
     </div>
   </article>
 
-  <article class="card" id="sz-3-slivki">
+  <article class="card" id="sz-3-slivki" data-status="ok">
     <span class="badge b-ok">Успех</span> <span class="badge b-info">Главный результат</span>
     <h3 style="margin-top:8px">СЗ-3-сливки · задумывалась сметана, вышел крем-сыр</h3>
     <p class="meta">15 сентября, 18:05 · покупные сливки 20 % · 100 мл</p>
@@ -498,6 +527,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink2);fo
   document.querySelectorAll('[data-go]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); history.replaceState(null,'','#'+a.dataset.go); show(a.dataset.go, true); }); });
   window.addEventListener('hashchange', function(){ route(location.hash.replace('#',''), false); });
   route(location.hash.replace('#',''), false);
+
+  var fbtns = document.querySelectorAll('.filter button');
+  var cards = document.querySelectorAll('#dnevnik article.card');
+  fbtns.forEach(function(b){
+    var f = b.dataset.f, n = 0;
+    cards.forEach(function(c){ if(f === 'all' || c.dataset.status === f) n++; });
+    b.textContent = b.dataset.label + ' · ' + n;
+    b.addEventListener('click', function(){
+      fbtns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      cards.forEach(function(c){ c.hidden = !(f === 'all' || c.dataset.status === f); });
+    });
+  });
 
   var lb = document.getElementById('lb'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.cap');
   document.querySelectorAll('[data-gal] button').forEach(function(b){
